@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import Any, Self
+from typing import Any
 
 import yaml
 from pydantic import BaseModel, ValidationError
@@ -14,30 +14,24 @@ from .exceptions import (
 )
 
 
-class YAMLConfig(BaseModel):
-    """A class to represent and parse a configuration file.
-
-    :raises FileNotFoundError: If the config file is not found
-    :raises InvalidYAMLError: If the config file is not a valid YAML file
-    :raises MissingEnvironmentVariableError: If an expected environment variable is missing
-    :raises SchemaValidationError: If the config file does not match the expected schema
-    :return: A YAMLConfig object
-    :rtype: YAMLConfig
-    """  # noqa: E501
+class YAMLConfig:
+    """A class to parse and represent a YAML configuration file."""
 
     # Public methods
 
     @classmethod
-    def from_yaml(cls, path: str) -> Self:
-        """Create a configuration object from a YAML file.
+    def parse(cls, path: str, *, schema: type[BaseModel]) -> BaseModel:
+        """Create a Pydantic configuration object from a YAML file.
 
         :param path: The path to the YAML file
         :type path: str
+        :param schema: The Pydantic schema
+        :type schema: type[BaseModel]
         :raises FileNotFoundError: If the config file is not found
         :raises InvalidYAMLError: If the config file is not a valid YAML file
         :raises SchemaValidationError: If the config file does not match the expected schema
-        :return: A YAMLConfig object
-        :rtype: Self
+        :return: A Pydantic configuration object
+        :rtype: BaseModel
         """  # noqa: E501
         _path = Path(path)
 
@@ -51,19 +45,19 @@ class YAMLConfig(BaseModel):
             except ScannerError as e:
                 raise InvalidYAMLError(path, e) from None
 
-        cls._replace_dashes_in_keys(data)
-        cls._replace_env_vars(data)
+        cls._normalize_keys(data)
+        cls._set_env_vars(data)
 
         try:
-            return cls(**data)
+            return schema(**data)
 
         except ValidationError as e:
             raise SchemaValidationError(path, e) from None
 
     # Private methods
 
-    @staticmethod
-    def _replace_dashes_in_keys(data: dict[str, Any]) -> None:
+    @classmethod
+    def _normalize_keys(cls, data: dict[str, Any]) -> None:
         """Replace dashes in keys with underscores.
 
         :param data: The data to process
@@ -76,10 +70,10 @@ class YAMLConfig(BaseModel):
                 data[new_key] = data.pop(k)
 
             if isinstance(data[new_key], dict):
-                YAMLConfig._replace_dashes_in_keys(data[new_key])
+                cls._normalize_keys(data[new_key])
 
-    @staticmethod
-    def _replace_env_vars(data: dict[str, Any]) -> None:
+    @classmethod
+    def _set_env_vars(cls, data: dict[str, Any]) -> None:
         """Replace environment variables with their values.
 
         :param data: The data to process
@@ -104,4 +98,4 @@ class YAMLConfig(BaseModel):
                     data[k] = value
 
                 case dict():
-                    YAMLConfig._replace_env_vars(v)
+                    cls._set_env_vars(v)
