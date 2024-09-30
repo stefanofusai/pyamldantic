@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yaml-cfg"
+version = "1.0.0"
+authors = [{ "name" = "Stefano Fusai", "email" = "stefanofusai@gmail.com" }]
+description = "Easily parse YAML config files, with support for type hints and environment variables."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic",
+    "pyyaml",
+]
+
+[project.urls]
+Homepage = "https://github.com/stefanofusai/yaml-cfg"
+Repository = "https://github.com/stefanofusai/yaml-cfg"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --verbose --cov-report=term-missing:skip-covered --durations=10 --numprocesses=auto"
+filterwarnings = ["ignore::DeprecationWarning"]
+python_files = ["tests/*"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["ANN401", "ARG002", "COM812", "D100", "D104", "D203", "D213", "ISC001", "TD001", "TD002", "TD003", "TRY003"]
