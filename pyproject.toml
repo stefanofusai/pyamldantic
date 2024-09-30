@@ -29,7 +29,21 @@ python_files = ["tests/*"]
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["ANN401", "ARG002", "COM812", "D100", "D104", "D203", "D213", "ISC001", "TD001", "TD002", "TD003", "TRY003"]
+ignore = [
+    "ANN401",
+    "ARG002",
+    "COM812",
+    "D100",
+    "D104",
+    "D203",
+    "D213",
+    "FIX002",
+    "ISC001",
+    "TD001",
+    "TD002",
+    "TD003",
+    "TRY003"
+]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["D103"]
