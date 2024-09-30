@@ -1,0 +1,9 @@
+database:
+  host: $DATABASE_HOST
+  name: $DATABASE_NAME
+  password: $DATABASE_PASSWORD
+  port: $DATABASE_PORT
+  user: $DATABASE_USER
+  timeout: $DATABASE_TIMEOUT?
+debug: true
+environment: testing
