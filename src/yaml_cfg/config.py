@@ -21,7 +21,7 @@ class YAMLConfig:
 
     @classmethod
     def load(cls, path: str, *, schema: type[BaseModel]) -> BaseModel:
-        """Create a Pydantic configuration object from a YAML file.
+        """Create a Pydantic configuration object from a YAML file and a Pydantic schema.
 
         :param path: The path to the YAML file
         :type path: str
