@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "yaml-cfg"
 version = "1.0.0"
 authors = [{ "name" = "Stefano Fusai", "email" = "stefanofusai@gmail.com" }]
-description = "Easily parse YAML config files, with support for type hints and environment variables."
+description = "Validate and serialize YAML config files with Pydantic, with support for environment variables."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
