@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, TypeVar
 
 import yaml
 from pydantic import BaseModel, ValidationError
@@ -13,6 +13,8 @@ from .exceptions import (
     SchemaValidationError,
 )
 
+T = TypeVar("T", bound=BaseModel)
+
 
 class YAMLConfig:
     """A class to parse and represent a YAML configuration file."""
@@ -20,18 +22,18 @@ class YAMLConfig:
     # Public methods
 
     @classmethod
-    def load(cls, path: str, *, schema: type[BaseModel]) -> BaseModel:
+    def load(cls, path: str, *, schema: type[T]) -> T:
         """Create a Pydantic configuration object from a YAML file and a Pydantic schema.
 
         :param path: The path to the YAML file
         :type path: str
         :param schema: The Pydantic schema
-        :type schema: type[BaseModel]
+        :type schema: type[T]
         :raises FileNotFoundError: If the config file is not found
         :raises InvalidYAMLError: If the config file is not a valid YAML file
         :raises SchemaValidationError: If the config file does not match the expected schema
         :return: A Pydantic configuration object
-        :rtype: BaseModel
+        :rtype: T
         """  # noqa: E501
         _path = Path(path)
 
