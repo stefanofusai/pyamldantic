@@ -5,5 +5,5 @@ database:
   port: $DATABASE_PORT
   user: $DATABASE_USER
   timeout: $DATABASE_TIMEOUT?
-debug: true
 environment: testing
+is-debug: true
