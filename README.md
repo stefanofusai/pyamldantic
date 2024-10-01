@@ -27,8 +27,8 @@ is-debug: true
 `config.py`
 
 ```python
-from pydantic import BaseModel, SecretStr
 from pyamldantic import YAMLConfig
+from pydantic import BaseModel, SecretStr
 
 class DatabaseSchema(BaseModel):
     host: str
