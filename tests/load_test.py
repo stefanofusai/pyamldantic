@@ -3,7 +3,7 @@ import os
 from pydantic import SecretStr
 from pytest_mock import MockerFixture
 
-from src.yaml_cfg import YAMLConfig
+from src.pyamldantic import YAMLConfig
 
 from .fixtures import Schema
 

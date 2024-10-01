@@ -1,16 +1,17 @@
-# yaml-cfg
+# pyamldantic
 
 Validate and serialize YAML config files with Pydantic, with support for environment variables.
 
 ## Installation
 
 ```bash
-pip install yaml-cfg
+pip install pyamldantic
 ```
 
 ## Usage
 
 `config.yaml`
+
 ```yaml
 database:
   host: $DATABASE_HOST
@@ -24,10 +25,10 @@ is-debug: true
 ```
 
 `config.py`
+
 ```python
 from pydantic import BaseModel, SecretStr
-from yaml_cfg import YAMLConfig
-
+from pyamldantic import YAMLConfig
 
 class DatabaseSchema(BaseModel):
     host: str
@@ -38,20 +39,18 @@ class DatabaseSchema(BaseModel):
     ssl: bool = False
     timeout: int | None = None
 
-
 class Schema(BaseModel):
     database: DatabaseSchema
     environment: str
     is_debug: bool
 
-
 config = YAMLConfig.load("config.yaml", schema=Schema)
 ```
 
 `main.py`
+
 ```python
 from .config import config
-
 
 if __name__ == "__main__":
     print(f"Initializing {config.environment} environment...")
@@ -64,8 +63,8 @@ This project was inspired by [envyaml](https://github.com/thesimj/envyaml).
 
 ## Contributing
 
-Contributions are welcome! To get started, please refer to our [contribution guidelines](https://github.com/stefanofusai/yaml-cfg/blob/main/CONTRIBUTING.md).
+Contributions are welcome! To get started, please refer to our [contribution guidelines](https://github.com/stefanofusai/pyamldantic/blob/main/CONTRIBUTING.md).
 
 ## Issues
 
-If you encounter any problems while using this package, please open a new issue [here](https://github.com/stefanofusai/yaml-cfg/issues).
+If you encounter any problems while using this package, please open a new issue [here](https://github.com/stefanofusai/pyamldantic/issues).

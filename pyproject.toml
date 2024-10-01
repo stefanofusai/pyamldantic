@@ -3,7 +3,7 @@ requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "yaml-cfg"
+name = "pyamldantic"
 version = "1.0.0"
 authors = [{ "name" = "Stefano Fusai", "email" = "stefanofusai@gmail.com" }]
 description = "Validate and serialize YAML config files with Pydantic, with support for environment variables."
@@ -15,8 +15,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/stefanofusai/yaml-cfg"
-Repository = "https://github.com/stefanofusai/yaml-cfg"
+Homepage = "https://github.com/stefanofusai/pyamldantic"
+Repository = "https://github.com/stefanofusai/pyamldantic"
 
 [tool.mypy]
 python_version = "3.12"

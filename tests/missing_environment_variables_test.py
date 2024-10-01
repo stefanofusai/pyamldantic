@@ -1,7 +1,7 @@
 import pytest
 
-from src.yaml_cfg import YAMLConfig
-from src.yaml_cfg.exceptions import MissingEnvironmentVariableError
+from src.pyamldantic import YAMLConfig
+from src.pyamldantic.exceptions import MissingEnvironmentVariableError
 
 from .fixtures import Schema
 

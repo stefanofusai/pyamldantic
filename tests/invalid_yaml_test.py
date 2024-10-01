@@ -3,8 +3,8 @@ from pathlib import Path
 import pytest
 from pytest_mock import MockerFixture
 
-from src.yaml_cfg import YAMLConfig
-from src.yaml_cfg.exceptions import InvalidYAMLError
+from src.pyamldantic import YAMLConfig
+from src.pyamldantic.exceptions import InvalidYAMLError
 
 from .fixtures import Schema
 
