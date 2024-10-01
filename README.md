@@ -1,6 +1,6 @@
 # yaml-cfg
 
-Easily parse YAML config files, with support for type hints and environment variables.
+Validate and serialize YAML config files with Pydantic, with support for environment variables.
 
 ## Installation
 
@@ -10,9 +10,53 @@ pip install yaml-cfg
 
 ## Usage
 
-<!--
-#TODO: Finish up the **Usage** section of this doc
--->
+`config.yaml`
+```yaml
+database:
+  host: $DATABASE_HOST
+  name: $DATABASE_NAME
+  password: $DATABASE_PASSWORD
+  port: $DATABASE_PORT
+  user: $DATABASE_USER
+  timeout: $DATABASE_TIMEOUT?
+environment: development
+is-debug: true
+```
+
+`config.py`
+```python
+from pydantic import BaseModel, SecretStr
+from yaml_cfg import YAMLConfig
+
+
+class DatabaseSchema(BaseModel):
+    host: str
+    name: str
+    password: SecretStr
+    port: int
+    user: str
+    ssl: bool = False
+    timeout: int | None = None
+
+
+class Schema(BaseModel):
+    database: DatabaseSchema
+    environment: str
+    is_debug: bool
+
+
+config = YAMLConfig.load("config.yaml", schema=Schema)
+```
+
+`main.py`
+```python
+from .config import config
+
+
+if __name__ == "__main__":
+    print(f"Initializing {config.environment} environment...")
+    ...
+```
 
 ## Acknowledgments
 
