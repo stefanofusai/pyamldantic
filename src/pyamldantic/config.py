@@ -15,7 +15,7 @@ from .exceptions import (
 
 T = TypeVar("T", bound=BaseModel)
 
-
+# test
 class YAMLConfig:
     """A class to parse and represent a YAML configuration file."""
 
