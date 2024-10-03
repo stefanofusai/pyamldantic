@@ -23,7 +23,8 @@ class YAMLConfig:
 
     @classmethod
     def load(cls, path: str, *, schema: type[T]) -> T:
-        """Create a Pydantic configuration object from a YAML file and a Pydantic schema.
+        """
+        Create a Pydantic configuration object from a YAML file and a Pydantic schema.
 
         :param path: The path to the YAML file
         :type path: str
@@ -34,7 +35,7 @@ class YAMLConfig:
         :raises SchemaValidationError: If the config file does not match the expected schema
         :return: A Pydantic configuration object
         :rtype: T
-        """  # noqa: E501
+        """
         _path = Path(path)
 
         if not _path.exists():
@@ -60,7 +61,8 @@ class YAMLConfig:
 
     @classmethod
     def _normalize_keys(cls, data: dict[str, Any]) -> None:
-        """Replace dashes in keys with underscores.
+        """
+        Replace dashes in keys with underscores.
 
         :param data: The data to process
         :type data: dict[str, Any]
@@ -76,12 +78,13 @@ class YAMLConfig:
 
     @classmethod
     def _set_env_vars(cls, data: dict[str, Any]) -> None:
-        """Replace environment variables with their values.
+        """
+        Replace environment variables with their values.
 
         :param data: The data to process
         :type data: dict[str, Any]
         :raises MissingEnvironmentVariableError: If an expected environment variable is missing
-        """  # noqa: E501
+        """
         for k, v in data.items():
             match v:
                 case str() if v.startswith("$"):
