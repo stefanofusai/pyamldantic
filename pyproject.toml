@@ -30,20 +30,25 @@ python_files = ["tests/*"]
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "ANN401",
-    "ARG002",
+    # Bad rules
     "COM812",
-    "D100",
-    "D104",
     "D203",
-    "D213",
-    "FIX002",
+    "D212",
+    "E501",
+    "FA102",
+    "FIX",
     "ISC001",
+    "PLR2004",
+    "RUF012",
     "S101",
+    "S311",
     "TD001",
     "TD002",
     "TD003",
-    "TRY003"
+    "TRY003",
+    # Project-specific rules
+    "D100",
+    "D104"
 ]
 
 [tool.ruff.lint.per-file-ignores]
