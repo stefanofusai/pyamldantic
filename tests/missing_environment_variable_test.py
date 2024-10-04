@@ -6,6 +6,6 @@ from src.pyamldantic.exceptions import MissingEnvironmentVariableError
 from .fixtures import Schema
 
 
-def test_schema_validation_error() -> None:
+def test_missing_environment_variable() -> None:
     with pytest.raises(MissingEnvironmentVariableError):
         YAMLConfig.load("tests/fixtures/config.yaml", schema=Schema)
