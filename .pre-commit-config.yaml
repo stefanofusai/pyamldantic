@@ -45,7 +45,7 @@ repos:
           - eof_newline=true
   # Specific checks and fixes for Python files
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.17.0
+    rev: v3.18.0
     hooks:
       - id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
@@ -74,7 +74,7 @@ repos:
           - main
   # Dependency management
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.4.18
+    rev: 0.4.20
     hooks:
       - id: pip-compile
         files: ^\.requirements\/(base|development)\.(in|txt)$
