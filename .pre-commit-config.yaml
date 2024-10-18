@@ -88,5 +88,7 @@ repos:
         args:
           - .requirements/base.in
           - .requirements/testing.in
+          - -c
+          - .requirements/development.txt
           - -o
           - .requirements/testing.txt
