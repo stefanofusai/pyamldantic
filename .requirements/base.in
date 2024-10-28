@@ -1,4 +1,2 @@
 pydantic
-pytest
-pytest-mock
 pyyaml
