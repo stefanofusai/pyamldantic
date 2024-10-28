@@ -57,6 +57,13 @@ if __name__ == "__main__":
     ...
 ```
 
+## Testing
+
+```bash
+pip install -r .requirements/testing.txt
+pytest
+```
+
 ## Acknowledgments
 
 This project was inspired by [envyaml](https://github.com/thesimj/envyaml).
