@@ -9,17 +9,11 @@ coverage==7.6.1
 execnet==2.1.1
     # via pytest-xdist
 iniconfig==2.0.0
-    # via
-    #   -c .requirements/development.txt
-    #   pytest
+    # via pytest
 packaging==24.1
-    # via
-    #   -c .requirements/development.txt
-    #   pytest
+    # via pytest
 pluggy==1.5.0
-    # via
-    #   -c .requirements/development.txt
-    #   pytest
+    # via pytest
 pydantic==2.9.2
     # via
     #   -c .requirements/development.txt
@@ -30,17 +24,14 @@ pydantic-core==2.23.4
     #   pydantic
 pytest==8.3.3
     # via
-    #   -c .requirements/development.txt
-    #   -r .requirements/base.in
+    #   -r .requirements/testing.in
     #   pytest-cov
     #   pytest-mock
     #   pytest-xdist
 pytest-cov==5.0.0
     # via -r .requirements/testing.in
 pytest-mock==3.14.0
-    # via
-    #   -c .requirements/development.txt
-    #   -r .requirements/base.in
+    # via -r .requirements/testing.in
 pytest-xdist==3.6.1
     # via -r .requirements/testing.in
 pyyaml==6.0.2
