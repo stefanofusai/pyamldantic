@@ -57,6 +57,12 @@ if __name__ == "__main__":
     ...
 ```
 
+## Development
+
+```bash
+pip install -r .requirements/development.txt
+```
+
 ## Testing
 
 ```bash
