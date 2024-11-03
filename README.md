@@ -61,6 +61,8 @@ if __name__ == "__main__":
 
 ```bash
 pip install -r .requirements/development.txt
+pre-commit install --install-hooks
+pre-commit install --hook-type commit-msg
 ```
 
 ## Testing
