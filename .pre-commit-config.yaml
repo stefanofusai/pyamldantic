@@ -1,6 +1,6 @@
 ci:
   skip:
-    - pip-compile
+    - uv-lock
 default_language_version:
   python: python3.12
 repos:
@@ -9,12 +9,6 @@ repos:
     rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
-      - id: file-contents-sorter
-        files: ^\.requirements/base\.in$
-      - id: file-contents-sorter
-        files: ^\.requirements/development\.in$
-      - id: file-contents-sorter
-        files: ^\.requirements/testing\.in$
       - id: name-tests-test
         exclude: ^tests/conftest\.py$
   # Specific checks and fixes for different file types
@@ -74,21 +68,6 @@ repos:
           - main
   # Dependency management
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.5.4
+    rev: 0.5.6
     hooks:
-      - id: pip-compile
-        files: ^\.requirements\/(base|development)\.(in|txt)$
-        args:
-          - .requirements/base.in
-          - .requirements/development.in
-          - -o
-          - .requirements/development.txt
-      - id: pip-compile
-        files: ^\.requirements\/(base|testing)\.(in|txt)$
-        args:
-          - .requirements/base.in
-          - .requirements/testing.in
-          - -c
-          - .requirements/development.txt
-          - -o
-          - .requirements/testing.txt
+      - id: uv-lock

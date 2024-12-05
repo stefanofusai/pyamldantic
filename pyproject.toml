@@ -1,22 +1,39 @@
-[build-system]
-requires = ["setuptools >= 61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "pyamldantic"
-version = "1.0.0"
-authors = [{ "name" = "Stefano Fusai", "email" = "stefanofusai@gmail.com" }]
+version = "1.1.0"
 description = "Validate and serialize YAML config files with Pydantic, with support for environment variables."
 readme = "README.md"
+authors = [
+    { name = "Stefano Fusai", email = "stefanofusai@gmail.com" }
+]
+maintainers = [
+    { name = "Stefano Fusai", email = "stefanofusai@gmail.com" }
+]
 requires-python = ">=3.12"
 dependencies = [
-    "pydantic",
-    "pyyaml",
+    "pydantic==2.10.3",
+    "pyyaml==6.0.2",
 ]
 
 [project.urls]
 Homepage = "https://github.com/stefanofusai/pyamldantic"
 Repository = "https://github.com/stefanofusai/pyamldantic"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+development = [
+    "pre-commit==4.0.1",
+    "ruff==0.8.2",
+]
+testing = [
+    "pytest==8.3.4",
+    "pytest-cov==6.0.0",
+    "pytest-mock==3.14.0",
+    "pytest-xdist==3.6.1",
+]
 
 [tool.mypy]
 python_version = "3.12"
@@ -56,3 +73,6 @@ split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["D103"]
+
+[tool.uv]
+default-groups = []
