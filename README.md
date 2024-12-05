@@ -2,10 +2,12 @@
 
 Validate and serialize YAML config files with Pydantic, with support for environment variables.
 
+This package uses [uv](https://docs.astral.sh/uv/) for project management. To get started, ensure that **uv** is installed on your machine and updated to the `0.5.6` version. Detailed installation instructions for **uv** can be found [here](https://docs.astral.sh/uv/getting-started/installation/).
+
 ## Installation
 
 ```bash
-pip install pyamldantic
+uv add pyamldantic
 ```
 
 ## Usage
@@ -60,16 +62,16 @@ if __name__ == "__main__":
 ## Development
 
 ```bash
-pip install -r .requirements/development.txt
-pre-commit install --install-hooks
-pre-commit install --hook-type commit-msg
+uv sync --group=development
+uv run pre-commit install --install-hooks
+uv run pre-commit install --hook-type=commit-msg
 ```
 
 ## Testing
 
 ```bash
-pip install -r .requirements/testing.txt
-pytest
+uv sync --group=testing
+uv run pytest
 ```
 
 ## Acknowledgments

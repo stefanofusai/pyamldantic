@@ -24,15 +24,12 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         with:
-          version: 0.5.4
+          version: 0.5.6
           enable-cache: true
-          cache-dependency-glob: .requirements/testing.txt
-      - name: Install requirements
-        run: uv pip install -r .requirements/testing.txt
-        env:
-          UV_SYSTEM_PYTHON: 1
+      - name: Install the project
+        run: uv sync --group=testing
       - name: Run tests
-        run: pytest
+        run: uv run pytest
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.6.0
         with:
