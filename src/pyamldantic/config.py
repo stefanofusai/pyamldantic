@@ -7,7 +7,7 @@ from pydantic import BaseModel, ValidationError
 from yaml.scanner import ScannerError
 
 from .exceptions import (
-    FileNotFoundError,
+    FileNotFoundError,  # noqa: A004
     InvalidYAMLError,
     MissingEnvironmentVariableError,
     SchemaValidationError,
