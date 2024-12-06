@@ -1,7 +1,6 @@
 import pytest
 
 from src.pyamldantic import YAMLConfig
-from src.pyamldantic.exceptions import FileNotFoundError  # noqa: A004
 
 from .fixtures import Schema
 

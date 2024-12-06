@@ -1,10 +1,3 @@
-class FileNotFoundError(Exception):  # noqa: A001
-    """Raised when the config file is not found."""
-
-    def __init__(self, path: str) -> None:  # noqa: D107
-        super().__init__(f"{path} not found")
-
-
 class InvalidYAMLError(Exception):
     """Raised when the config file is not a valid YAML file."""
 
