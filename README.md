@@ -23,7 +23,7 @@ database:
   user: $DATABASE_USER
   timeout: $DATABASE_TIMEOUT?
 environment: development
-is-debug: true
+is_debug: true
 ```
 
 `config.py`

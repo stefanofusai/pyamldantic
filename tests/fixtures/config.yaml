@@ -6,4 +6,4 @@ database:
   user: $DATABASE_USER
   timeout: $DATABASE_TIMEOUT?
 environment: testing
-is-debug: true
+is_debug: true
