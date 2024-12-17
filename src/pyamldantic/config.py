@@ -47,7 +47,6 @@ class YAMLConfig:
             except ScannerError as e:
                 raise InvalidYAMLError(path, e) from None
 
-        cls._normalize_keys(data)
         cls._set_env_vars(data)
 
         try:
@@ -57,23 +56,6 @@ class YAMLConfig:
             raise SchemaValidationError(path, e) from None
 
     # Private methods
-
-    @classmethod
-    def _normalize_keys(cls, data: dict[str, Any]) -> None:
-        """
-        Replace dashes in keys with underscores.
-
-        :param data: The data to process
-        :type data: dict[str, Any]
-        """
-        for k in list(data.keys()):
-            new_key = k.replace("-", "_")
-
-            if new_key != k:
-                data[new_key] = data.pop(k)
-
-            if isinstance(data[new_key], dict):
-                cls._normalize_keys(data[new_key])
 
     @classmethod
     def _set_env_vars(cls, data: dict[str, Any]) -> None:
