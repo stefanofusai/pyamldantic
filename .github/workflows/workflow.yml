@@ -28,9 +28,9 @@ jobs:
           version: 0.5.6
           enable-cache: true
       - name: Install the project
-        run: uv sync --group=testing
+        run: uv sync --frozen --group=testing
       - name: Run tests
-        run: uv run pytest
+        run: uv run --frozen pytest
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5.1.2
         with:
