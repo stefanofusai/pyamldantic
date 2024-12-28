@@ -27,7 +27,7 @@ jobs:
         with:
           version: 0.5.6
       - name: Install project
-        run: uv sync --group=testing
+        run: uv sync --frozen --group=testing
       - name: Run tests
         run: uv run pytest
       - name: Upload coverage reports to Codecov
