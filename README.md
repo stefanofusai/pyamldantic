@@ -62,16 +62,16 @@ if __name__ == "__main__":
 ## Development
 
 ```bash
-uv sync --group=development
-uv run pre-commit install --install-hooks
-uv run pre-commit install --hook-type=commit-msg
+uv sync --frozen --group=development
+uv run --frozen pre-commit install --install-hooks
+uv run --frozen pre-commit install --hook-type=commit-msg
 ```
 
 ## Testing
 
 ```bash
-uv sync --group=testing
-uv run pytest
+uv sync --frozen --group=testing
+uv run --frozen pytest
 ```
 
 ## Acknowledgments
