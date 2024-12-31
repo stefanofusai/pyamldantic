@@ -40,7 +40,7 @@ python_version = "3.12"
 strict = true
 
 [tool.pytest.ini_options]
-addopts = "--cov --verbose --cov-report=term-missing:skip-covered --durations=10 --numprocesses=auto"
+addopts = "--cov --verbose --cov-report=term-missing:skip-covered --cov-report=xml --durations=10 --numprocesses=auto"
 filterwarnings = ["ignore::DeprecationWarning"]
 python_files = ["tests/*"]
 
