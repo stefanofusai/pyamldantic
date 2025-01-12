@@ -25,8 +25,10 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 development = [
+    "mypy==1.13.0",
     "pre-commit==4.0.1",
     "ruff==0.8.2",
+    "types-pyyaml==6.0.12.20240917",
 ]
 testing = [
     "pytest==8.3.4",
@@ -36,7 +38,7 @@ testing = [
 ]
 
 [tool.mypy]
-python_version = "3.12"
+explicit_package_bases = true
 strict = true
 
 [tool.pytest.ini_options]
