@@ -75,3 +75,4 @@ split-on-trailing-comma = false
 
 [tool.uv]
 default-groups = []
+resolution = "lowest-direct"
