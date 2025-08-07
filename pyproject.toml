@@ -26,7 +26,7 @@ build-backend = "hatchling.build"
 [dependency-groups]
 development = [
     "pre-commit==4.0.1",
-    "ruff==0.9.1",
+    "ruff==0.12.8",
 ]
 testing = [
     "pytest==8.3.4",
