@@ -29,7 +29,7 @@ development = [
     "ruff==0.9.1",
 ]
 testing = [
-    "pytest==8.3.4",
+    "pytest==8.4.1",
     "pytest-cov==6.0.0",
     "pytest-mock==3.14.0",
     "pytest-xdist==3.6.1",
