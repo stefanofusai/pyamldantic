@@ -16,39 +16,39 @@ repos:
           - --ignore=B6
           - --msg-filename
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: no-commit-to-branch
         args:
           - --branch=main
   # Generic checks and fixes
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: end-of-file-fixer
       - id: name-tests-test
         exclude: ^tests/conftest\.py$
   # Specific checks and fixes for different file types
   - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.13.0
+    rev: v0.12.0
     hooks:
       - id: markdownlint
         args:
           - -r
           - ~MD013
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-toml
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         args:
           - -d
           - "{extends: default, rules: {comments: {min-spaces-from-content: 1}, document-start: {present: false}, line-length: disable}}"
   - repo: https://github.com/google/yamlfmt
-    rev: v0.15.0
+    rev: v0.17.2
     hooks:
       - id: yamlfmt
         args:
@@ -56,11 +56,11 @@ repos:
           - eof_newline=true
   # Specific checks and fixes for Python files
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+    rev: v3.20.0
     hooks:
       - id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.1
+    rev: v0.12.8
     hooks:
       - id: ruff
         args:
@@ -68,6 +68,6 @@ repos:
       - id: ruff-format
   # Dependency management
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.5.18
+    rev: 0.8.8
     hooks:
       - id: uv-lock
